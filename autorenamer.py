@@ -122,7 +122,7 @@ async def on_voice_state_update(before, after):
             else:
                 to_name = getMostPlayedGameInChannel(before.voice_channel)
                 if to_name:
-                    if not re.search(r'\(.*?\)', after.voice_channel.name):
+                    if not re.search(r'\(.*?\)', before.voice_channel.name):
                         await bot.edit_channel(before.voice_channel, name=before.voice_channel.name + " (" + before.game.name + ")")
                         print("Changing channel name to " + before.voice_channel.name + " (" + to_name + ")")
                     else:
