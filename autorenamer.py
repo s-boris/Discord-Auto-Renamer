@@ -40,7 +40,7 @@ async def on_member_update(before, after):
         if after.voice_channel:
             try:
                 if not re.search(r'\(.*?\)', after.voice_channel.name):
-                    if after.game.name:
+                    if after.game:
                         print(after.display_name + " changed game status to " + after.game.name)
                         await bot.edit_channel(after.voice_channel, name=after.voice_channel.name + " (" + after.game.name + ")")
                         print("Changing channel name to: " + after.voice_channel.name + " (" + after.game.name + ")")
